@@ -7,6 +7,7 @@ import android.graphics.Paint
 import android.graphics.Path
 import android.util.AttributeSet
 import android.view.View
+import com.vicedev.vcustomviews.BaseView
 import com.vicedev.vcustomviews.common.DisplayUtils
 import com.vicedev.vcustomviews.common.getTextRect
 
@@ -17,7 +18,7 @@ import com.vicedev.vcustomviews.common.getTextRect
  * 支付宝芝麻信用
  */
 
-class ZFBSesameCredit : View {
+class ZFBSesameCredit : BaseView {
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
@@ -79,6 +80,10 @@ class ZFBSesameCredit : View {
         }
     }
 
+    override fun init(context: Context?) {
+
+    }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         setMeasuredDimension(defaultWidth, defaultHeight)
@@ -86,7 +91,7 @@ class ZFBSesameCredit : View {
 
     override fun onDraw(canvas: Canvas?) {
         canvas?.let {
-
+            drawCoordinate(canvas)
             with(it) {
                 for (i in 72..288 step 9) {
                     save()
